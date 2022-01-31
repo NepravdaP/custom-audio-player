@@ -7,8 +7,42 @@
 
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/svg/icons8-music.svg"
+      type="image/x-icon"
+    />
   </head>
   <body>
+    <img src="./assets/img/CIA.jpg" alt="Song cover" class="bg-cover" />
+    <audio src="./assets/audio/new-politics-cia.mp3"></audio>
+    <div class="container">
+      <div class="box"></div>
+      <img src="./assets/img/CIA.jpg" alt="song cover" class="thumbnail" />
+      <img
+        src="./assets/svg/play.png"
+        alt="play pause button"
+        class="play-pause"
+        onclick="playPause()"
+      />
+      <img src="./assets/svg/forward.png" alt="next song" class="next-btn" />
+      <img
+        src="./assets/svg/backward.png"
+        alt="previous song"
+        class="prev-btn"
+      />
+      <div class="song-title">CIA</div>
+      <div class="artist-name">New politics</div>
+      <input
+        type="range"
+        class="progress-bar"
+        min="0"
+        max="233.717551"
+        value="0"
+      />
+      <div class="currentTime"></div>
+      <div class="draionTime"></div>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>

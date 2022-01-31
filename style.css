@@ -1,5 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.bg-cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(8px);
+}
+.container {
+  position: absolute;
+  height: 45vh;
+  width: 30vw;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  display: flex;
+
+  background-color: #000;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+.thumbnail {
+  position: absolute;
+  width: 103%;
+  top: -7%;
+  z-index: 3;
+}
+.box {
+  position: absolute;
+  height: 50%;
+  width: 103%;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(40, 40, 40),
+    rgb(133, 133, 133)
+  );
+  bottom: -17%;
+  z-index: 4;
+}
+.play-pause {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  filter: invert(1);
+  cursor: pointer;
+  z-index: 4;
+  bottom: 14%;
+  left: 9%;
+  transition: 0.3s;
+}
+.next-btn {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  filter: invert(1);
+  cursor: pointer;
+  z-index: 4;
+  bottom: 20.5%;
+  right: 10.3%;
+}
+
+.prev-btn {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  filter: invert(1);
+  cursor: pointer;
+  z-index: 4;
+  bottom: 9.5%;
+  right: 10.3%;
+}
+.song-title {
+  position: absolute;
+  z-index: 4;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  left: 29%;
+  bottom: 15%;
+}
+.artist-name {
+  position: absolute;
+  z-index: 4;
+  color: #4f1a20;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  bottom: 21%;
+  left: 29%;
+}
+.progress-bar {
+  appearance: none;
+  position: absolute;
+  z-index: 4;
+  height: 5px;
+  background: #000;
+  width: 150pt;
+  bottom: 5%;
+  left: 17%;
+  border-radius: 30px;
+}
+.progress-bar::-webkit-slider-thumb {
+  background-color: #fff;
+  cursor: pointer;
+  color: #4f1a20;
+  background: #4f1a20;
 }
