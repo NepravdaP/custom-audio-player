@@ -25,11 +25,17 @@
         class="play-pause"
         onclick="playPause()"
       />
-      <img src="./assets/svg/forward.png" alt="next song" class="next-btn" />
+      <img
+        src="./assets/svg/forward.png"
+        alt="next song"
+        class="next-btn"
+        onclick="playNext()"
+      />
       <img
         src="./assets/svg/backward.png"
         alt="previous song"
         class="prev-btn"
+        onclick="playPrev()"
       />
       <div class="song-title">CIA</div>
       <div class="artist-name">New politics</div>
@@ -41,7 +47,7 @@
         value="0"
       />
       <div class="currentTime"></div>
-      <div class="draionTime"></div>
+      <div class="duraionTime"></div>
     </div>
     <script src="./index.js"></script>
   </body>

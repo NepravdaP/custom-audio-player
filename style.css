@@ -36,6 +36,7 @@
   width: 103%;
   top: -7%;
   z-index: 3;
+  transition: 1;
 }
 .box {
   position: absolute;
