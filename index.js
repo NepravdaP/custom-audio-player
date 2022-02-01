@@ -8,6 +8,8 @@ const title = document.querySelector(".song-title");
 const currTime = document.querySelector(".currentTime");
 const durationTime = document.querySelector(".durationTime");
 const progressBar = document.querySelector("input");
+
+const cssVar = document.documentElement;
 const titleColorArr = ["#4f1a20", "#1C4242", "#F4EA77"];
 const CoverSrcArr = [
   "./assets/img/CIA.jpg",
@@ -39,25 +41,18 @@ audio.volume = 0.2;
 //   currTime.textContent = audio.currentTime;
 //   durationTime.textContent = audio.duration;
 // });
-progressBar.addEventListener("change", (e) => {
-  audio.currentTime = e.target.value;
-});
-audio.addEventListener("timeupdate", () => {
-  const minutes = Math.floor(audio.currentTime / 60);
-  const seconds = Math.floor(audio.currentTime - minutes * 60);
-  currTime.textContent = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
-  const progress = (audio.duration / 100) * audio.currentTime;
-  progressBar.max = audio.duration;
-  progressBar.value = audio.currentTime;
-});
+
 const songAssets = () => {
   artist.textContent = songArtistArr[currSong];
   title.textContent = songTitleArr[currSong];
   audio.src = songSrcArr[currSong];
   bgCover.src = CoverSrcArr[currSong];
   cover.src = CoverSrcArr[currSong];
-  artist.style = `color:${titleColorArr[currSong]}`;
+
+  // progressThumb.style = `background:${titleColorArr[currSong]}`;
+  cssVar.style.setProperty("--color", titleColorArr[currSong]);
 };
+
 const playPause = () => {
   if (!isPlay) {
     audio.play();
@@ -80,9 +75,9 @@ const playNext = () => {
     currSong++;
   }
   songAssets();
-  audio.currentTime = 0;
-  audio.play();
-  playBtn.src = "./assets/svg/pause.png";
+
+  isPlay = false;
+  playPause();
 };
 const playPrev = () => {
   if (currSong === 0) {
@@ -93,9 +88,23 @@ const playPrev = () => {
   songAssets();
 
   audio.currentTime = 0;
-  audio.play();
-  playBtn.src = "./assets/svg/pause.png";
+  isPlay = false;
+  playPause();
 };
+audio.addEventListener("timeupdate", () => {
+  const minutes = Math.floor(audio.currentTime / 60);
+  const seconds = Math.floor(audio.currentTime - minutes * 60);
+  currTime.textContent = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+  const durMin = Math.floor(audio.duration / 60);
+  const durSec = Math.floor(audio.duration - durMin * 60);
+  durationTime.textContent = `${durMin}:${durSec < 10 ? "0" + durMin : durSec}`;
+  const progress = (audio.duration / 100) * audio.currentTime;
+  progressBar.max = audio.duration;
+  progressBar.value = audio.currentTime;
+});
 
-console.log(audio.currentTime);
-console.log(audio.duration);
+progressBar.addEventListener("change", (e) => {
+  audio.currentTime = e.target.value;
+  isPlay = false;
+  playPause();
+});
