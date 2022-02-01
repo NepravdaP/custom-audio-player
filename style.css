@@ -36,7 +36,7 @@
   width: 103%;
   top: -7%;
   z-index: 3;
-  transition: 1;
+  transition: 1s;
 }
 .box {
   position: absolute;
@@ -107,14 +107,43 @@
   z-index: 4;
   height: 5px;
   background: #000;
-  width: 150pt;
+  width: 60%;
   bottom: 5%;
-  left: 17%;
+  left: 19%;
   border-radius: 30px;
 }
-.progress-bar::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #4f1a20;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
   background-color: #fff;
   cursor: pointer;
   color: #4f1a20;
   background: #4f1a20;
+}
+.currentTime {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  bottom: -3%;
+  left: 5%;
+  z-index: 4;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #fff;
+}
+.durationTime {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  bottom: 10%;
+  left: 5%;
+  z-index: 4;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #fff;
 }
