@@ -25,7 +25,7 @@ const songTitleArr = ["CIA", "Don't Hurt Yourself", "Don't Start Now"];
 const songArtistArr = ["New Politics", "Beyonce", "Dua Lipa"];
 let currSong = 0;
 let isPlay = false;
-audio.volume = 0.2;
+
 // const durInterval = () => {
 //   while (audio.currentTime != audio.duration) {
 //     const interval = setInterval(() => {
